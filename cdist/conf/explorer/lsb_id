@@ -27,7 +27,7 @@ case "$("$__explorer/os")" in
    ;;
    macosx)
       sw_vers=$(command -v sw_vers)
-      $sw_vers | sed -nE 's/^ProductName:[^\t]([A-Z][a-zA-Z ]+)$/\1/p'
+      $sw_vers | sed -nE 's/^ProductName:[^\t]([a-zA-Z][a-zA-Z ]+)$/\1/p'
    ;;
    *)
       lsb_release=$(command -v lsb_release)
