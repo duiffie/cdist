@@ -58,6 +58,9 @@ case $uname_s in
             echo 'If you can, please submit a patch.'>&2
         fi
     ;;
+    Darwin)
+        diskutil list | sed -nE 's/^\/dev\/([a-z0-9]+) \(internal, physical\).*$/\1/p'
+    ;;
     *)
         printf "Don't know how to list disks for %s operating system.\n" "${uname_s}" >&2
         printf 'If you can please submit a patch\n' >&2
