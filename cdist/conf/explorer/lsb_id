@@ -25,6 +25,10 @@ case "$("$__explorer/os")" in
       # shellcheck disable=SC1091
       (. /etc/openwrt_release && echo "$DISTRIB_ID")
    ;;
+   macosx)
+      sw_vers=$(command -v sw_vers)
+      $sw_vers | sed -nE 's/^ProductName:[^\t]([A-Z][a-zA-Z ]+)$/\1/p'
+   ;;
    *)
       lsb_release=$(command -v lsb_release)
       if [ -x "$lsb_release" ]; then
